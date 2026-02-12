@@ -3,8 +3,9 @@
 A minimal Django web application that allows users to manage personal
 schedules.
 
-This project was built as a deployment test application and demonstrates
-basic authentication and CRUD functionality using Django.
+This project was built as a deployment and database configuration test
+application. It demonstrates authentication, CRUD operations, and
+PostgreSQL integration using Django.
 
 ------------------------------------------------------------------------
 
@@ -26,92 +27,83 @@ basic authentication and CRUD functionality using Django.
 
 -   Python 3
 -   Django
--   SQLite (default)
--   Gunicorn (for production)
--   Nginx (reverse proxy in deployment)
+-   PostgreSQL
+-   Gunicorn (production server)
+-   Nginx (reverse proxy for deployment)
 
 ------------------------------------------------------------------------
 
-## Local Development Setup
+## Database Configuration (PostgreSQL)
 
-### 1. Clone the repository
+This project uses PostgreSQL as the primary database.
 
-``` bash
-git clone <your-repo-url>
-cd schedule_manager
-```
+### Required Environment Variables
 
-### 2. Create virtual environment
-
-``` bash
-python -m venv venv
-source venv/bin/activate   # Linux/macOS
-# or
-venv\Scripts\activate      # Windows
-```
-
-### 3. Install dependencies
-
-``` bash
-pip install -r requirements.txt
-```
-
-### 4. Create `.env` file in project root
+Create a `.env` file in the project root:
 
     DJANGO_SECRET_KEY=your-secret-key
     DJANGO_DEBUG=True
     DJANGO_ALLOWED_HOSTS=127.0.0.1,localhost
 
-### 5. Run migrations
+    POSTGRES_DB=schedule_db
+    POSTGRES_USER=postgres
+    POSTGRES_PASSWORD=yourpassword
+    POSTGRES_HOST=localhost
+    POSTGRES_PORT=5432
 
-``` bash
-python manage.py migrate
-```
+### Install PostgreSQL Driver
 
-### 6. Start development server
+    pip install psycopg2-binary
 
-``` bash
-python manage.py runserver
-```
+### Apply Migrations
 
-------------------------------------------------------------------------
-
-## Production Deployment (Example)
-
-1.  Set environment variables properly.
-2.  Run:
-
-``` bash
-python manage.py migrate
-python manage.py collectstatic --noinput
-```
-
-3.  Start with Gunicorn:
-
-``` bash
-gunicorn schedule_manager.wsgi:application
-```
-
-4.  Configure Nginx to reverse proxy to Gunicorn.
+    python manage.py migrate
 
 ------------------------------------------------------------------------
 
-## Environment Variables
+## Local Development Setup
 
-  Variable               Description
-  ---------------------- ---------------------------
-  DJANGO_SECRET_KEY      Django secret key
-  DJANGO_DEBUG           True/False
-  DJANGO_ALLOWED_HOSTS   Comma-separated host list
+### 1. Clone Repository
+
+    git clone <your-repo-url>
+    cd schedule_manager
+
+### 2. Create Virtual Environment
+
+    python -m venv venv
+    venv\Scripts\activate   # Windows
+
+### 3. Install Dependencies
+
+    pip install -r requirements.txt
+
+### 4. Run Server
+
+    python manage.py runserver
+
+------------------------------------------------------------------------
+
+## Production Deployment Overview
+
+Deployment tested using:
+
+-   Gunicorn
+-   Nginx
+-   Ubuntu (EC2)
+
+Production steps:
+
+    python manage.py migrate
+    python manage.py collectstatic --noinput
+    gunicorn schedule_manager.wsgi:application
 
 ------------------------------------------------------------------------
 
 ## Purpose
 
-This project was created to test production deployment workflows
-including:
+This project was created to practice:
 
+-   PostgreSQL integration with Django
 -   Environment variable management
--   Gunicorn configuration
--   Nginx reverse proxy setup
--   EC2 server configuration
+-   Production-ready configuration
+-   Server deployment using Gunicorn and Nginx

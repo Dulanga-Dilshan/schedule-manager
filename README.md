@@ -50,7 +50,7 @@ validate:
 ## Local Installation
 
 ``` bash
-git clone https://github.com/your-username/schedule-manager.git
+git clone https://github.com/Dulanga-Dilshan/schedule-manager.git
 cd schedule-manager
 
 python -m venv venv

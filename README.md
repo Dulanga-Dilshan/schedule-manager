@@ -85,6 +85,7 @@ DB_PORT=5432
 After configuring the database:
 
 ``` bash
+python manage.py makemigrations
 python manage.py migrate
 python manage.py runserver
 ```

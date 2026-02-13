@@ -1,109 +1,105 @@
 # Schedule Manager
 
-A minimal Django web application that allows users to manage personal
-schedules.
+![Python](https://img.shields.io/badge/Python-3.x-blue)
+![Django](https://img.shields.io/badge/Django-Framework-green)
+![Database](https://img.shields.io/badge/Database-PostgreSQL-blue)
+![Deployment](https://img.shields.io/badge/Deployed-Live-success)
+![Server](https://img.shields.io/badge/Server-18.142.252.108-orange)
 
-This project was built as a deployment and database configuration test
-application. It demonstrates authentication, CRUD operations, and
-PostgreSQL integration using Django.
-
-------------------------------------------------------------------------
-
-## Features
-
--   User registration
--   User login/logout
--   Create schedules
--   Edit schedules
--   Delete schedules
--   Set schedule priority:
-    -   High
-    -   Medium
-    -   Low
+A production-ready Django web application for managing personal
+schedules, built and deployed as part of a backend deployment validation
+project.
 
 ------------------------------------------------------------------------
 
-## Tech Stack
+## 🌐 Live Application
 
--   Python 3
--   Django
--   PostgreSQL
--   Gunicorn (production server)
--   Nginx (reverse proxy for deployment)
+**Live URL:** http://18.142.252.108/
 
-------------------------------------------------------------------------
-
-## Database Configuration (PostgreSQL)
-
-This project uses PostgreSQL as the primary database.
-
-### Required Environment Variables
-
-Create a `.env` file in the project root:
-
-    DJANGO_SECRET_KEY=your-secret-key
-    DJANGO_DEBUG=True
-    DJANGO_ALLOWED_HOSTS=127.0.0.1,localhost
-
-    POSTGRES_DB=schedule_db
-    POSTGRES_USER=postgres
-    POSTGRES_PASSWORD=yourpassword
-    POSTGRES_HOST=localhost
-    POSTGRES_PORT=5432
-
-### Install PostgreSQL Driver
-
-    pip install psycopg2-binary
-
-### Apply Migrations
-
-    python manage.py migrate
+This application is actively deployed on a remote server to demonstrate
+real-world backend deployment capability using PostgreSQL.
 
 ------------------------------------------------------------------------
 
-## Local Development Setup
+## 🚀 Key Features
 
-### 1. Clone Repository
-
-    git clone <your-repo-url>
-    cd schedule_manager
-
-### 2. Create Virtual Environment
-
-    python -m venv venv
-    venv\Scripts\activate   # Windows
-
-### 3. Install Dependencies
-
-    pip install -r requirements.txt
-
-### 4. Run Server
-
-    python manage.py runserver
+-   Secure user registration and authentication
+-   Full CRUD functionality for schedules
+-   Priority management system (High / Medium / Low)
+-   User-specific schedule isolation
+-   Clean and minimal UI design
+-   Live production deployment
 
 ------------------------------------------------------------------------
 
-## Production Deployment Overview
+## 🛠 Technical Stack
 
-Deployment tested using:
-
--   Gunicorn
--   Nginx
--   Ubuntu (EC2)
-
-Production steps:
-
-    python manage.py migrate
-    python manage.py collectstatic --noinput
-    gunicorn schedule_manager.wsgi:application
+-   **Backend:** Python, Django
+-   **Database:** PostgreSQL
+-   **Frontend:** HTML, CSS
+-   **Deployment:** Linux-based remote server
 
 ------------------------------------------------------------------------
 
-## Purpose
+## 📦 Installation (Local Setup)
 
-This project was created to practice:
+``` bash
+git clone https://github.com/your-username/schedule-manager.git
+cd schedule-manager
 
--   PostgreSQL integration with Django
--   Environment variable management
--   Production-ready configuration
--   Server deployment using Gunicorn and Nginx
+python -m venv venv
+source venv/bin/activate      # Linux / Mac
+venv\Scripts\activate       # Windows
+
+pip install -r requirements.txt
+```
+
+### Configure PostgreSQL
+
+Create a PostgreSQL database and update your `.env` or `settings.py`
+with:
+
+``` env
+DB_NAME=your_db_name
+DB_USER=your_db_user
+DB_PASSWORD=your_password
+DB_HOST=localhost
+DB_PORT=5432
+```
+
+Then run:
+
+``` bash
+python manage.py migrate
+python manage.py runserver
+```
+
+------------------------------------------------------------------------
+
+## 🎯 Project Objectives
+
+This project demonstrates:
+
+-   Django authentication flow implementation
+-   PostgreSQL database integration
+-   Production-ready database configuration
+-   CRUD operations with user-based data access control
+-   Environment-based configuration handling
+-   Live server deployment
+
+------------------------------------------------------------------------
+
+## 📈 Potential Enhancements
+
+-   Due date tracking and reminders
+-   Filtering and sorting by priority
+-   REST API integration (Django REST Framework)
+-   Docker containerization
+-   CI/CD pipeline integration
+
+------------------------------------------------------------------------
+
+## 👨‍💻 Author
+
+Developed as a backend-focused deployment test to validate production
+readiness, PostgreSQL integration, and core Django fundamentals.

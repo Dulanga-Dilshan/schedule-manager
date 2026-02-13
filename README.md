@@ -3,45 +3,51 @@
 ![Python](https://img.shields.io/badge/Python-3.x-blue)
 ![Django](https://img.shields.io/badge/Django-Framework-green)
 ![Database](https://img.shields.io/badge/Database-PostgreSQL-blue)
-![Deployment](https://img.shields.io/badge/Deployed-Live-success)
+![Deployment](https://img.shields.io/badge/Deployment-Test_Project-lightgrey)
 ![Server](https://img.shields.io/badge/Server-18.142.252.108-orange)
 
-A production-ready Django web application for managing personal
-schedules, built and deployed as part of a backend deployment validation
-project.
+A minimal Django web application built **specifically as a deployment
+test project** to validate production configuration, environment
+management, and PostgreSQL integration.
+
+This is not a feature-heavy production system. It is intentionally
+simple and focused on verifying correct deployment practices.
 
 ------------------------------------------------------------------------
 
-## 🌐 Live Application
+## Live Application
 
-**Live URL:** http://18.142.252.108/
+Live URL: http://18.142.252.108/
 
-This application is actively deployed on a remote server to demonstrate
-real-world backend deployment capability using PostgreSQL.
+The application is deployed on a remote Linux server using PostgreSQL to
+validate:
+
+-   Environment variable configuration
+-   Production settings separation
+-   Database migration handling
+-   Remote server deployment workflow
 
 ------------------------------------------------------------------------
 
-## 🚀 Key Features
+## Core Features
 
--   Secure user registration and authentication
--   Full CRUD functionality for schedules
--   Priority management system (High / Medium / Low)
+-   User registration & authentication
+-   Create, edit, delete schedules
+-   Priority levels (High / Medium / Low)
 -   User-specific schedule isolation
--   Clean and minimal UI design
--   Live production deployment
 
 ------------------------------------------------------------------------
 
-## 🛠 Technical Stack
+## Technical Stack
 
--   **Backend:** Python, Django
--   **Database:** PostgreSQL
--   **Frontend:** HTML, CSS
--   **Deployment:** Linux-based remote server
+-   Backend: Python, Django
+-   Database: PostgreSQL
+-   Frontend: HTML, CSS
+-   Deployment: Linux-based remote server
 
 ------------------------------------------------------------------------
 
-## 📦 Installation (Local Setup)
+## Local Installation
 
 ``` bash
 git clone https://github.com/your-username/schedule-manager.git
@@ -54,12 +60,21 @@ venv\Scripts\activate       # Windows
 pip install -r requirements.txt
 ```
 
-### Configure PostgreSQL
+------------------------------------------------------------------------
 
-Create a PostgreSQL database and update your `.env` or `settings.py`
-with:
+## Environment Configuration (.env)
+
+This project uses environment variables for sensitive configuration.
+
+Example `.env` file:
 
 ``` env
+# Django Core
+SECRET_KEY=your-secret-key-here
+DEBUG=False
+ALLOWED_HOSTS=18.142.252.108,127.0.0.1,localhost
+
+# Database Configuration
 DB_NAME=your_db_name
 DB_USER=your_db_user
 DB_PASSWORD=your_password
@@ -67,7 +82,7 @@ DB_HOST=localhost
 DB_PORT=5432
 ```
 
-Then run:
+After configuring the database:
 
 ``` bash
 python manage.py migrate
@@ -76,30 +91,32 @@ python manage.py runserver
 
 ------------------------------------------------------------------------
 
-## 🎯 Project Objectives
+## Project Purpose
 
-This project demonstrates:
+This project exists to validate:
 
--   Django authentication flow implementation
--   PostgreSQL database integration
--   Production-ready database configuration
--   CRUD operations with user-based data access control
--   Environment-based configuration handling
--   Live server deployment
+-   Proper Django production settings
+-   PostgreSQL integration
+-   Secure environment variable usage
+-   Remote deployment workflow
+-   Basic CRUD architecture in a deployed environment
+
+It serves as a controlled deployment verification project rather than a
+feature-rich application.
 
 ------------------------------------------------------------------------
 
-## 📈 Potential Enhancements
+## Possible Extensions (Not Implemented)
 
--   Due date tracking and reminders
--   Filtering and sorting by priority
--   REST API integration (Django REST Framework)
+-   Due dates & reminders
+-   Filtering & sorting
+-   REST API layer (DRF)
 -   Docker containerization
 -   CI/CD pipeline integration
 
 ------------------------------------------------------------------------
 
-## 👨‍💻 Author
+## Author
 
-Developed as a backend-focused deployment test to validate production
-readiness, PostgreSQL integration, and core Django fundamentals.
+Developed as a backend deployment validation test project to demonstrate
+Django production readiness and PostgreSQL configuration.

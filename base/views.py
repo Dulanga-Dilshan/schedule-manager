@@ -14,10 +14,7 @@ from django.contrib.auth.decorators import login_required
 @login_required(login_url='base:login')
 def homepage(request):
     contex = {}
-    if request.user.is_superuser == 1:
-        contex['schedules'] = Shedule.objects.filter().order_by('-priority').order_by('-created_at')
-    else:
-        contex['schedules'] = Shedule.objects.filter(user=request.user).order_by('-priority').order_by('-created_at')
+    contex['schedules'] = Shedule.objects.filter(user=request.user).order_by('-priority').order_by('-created_at')
     return render(request,'base/index.html',contex)
 
 

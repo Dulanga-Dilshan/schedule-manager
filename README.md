@@ -15,20 +15,6 @@ simple and focused on verifying correct deployment practices.
 
 ------------------------------------------------------------------------
 
-## Live Application
-
-Live URL: http://18.142.252.108/
-
-The application is deployed on a remote Linux server using PostgreSQL to
-validate:
-
--   Environment variable configuration
--   Production settings separation
--   Database migration handling
--   Remote server deployment workflow
-
-------------------------------------------------------------------------
-
 ## Core Features
 
 -   User registration & authentication
